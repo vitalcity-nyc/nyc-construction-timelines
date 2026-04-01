@@ -37,8 +37,8 @@ For a typical new residential building, the permitting process moves through eig
 - If in a historic district or on a landmark site: LPC review required before DOB filing
 
 **Stage 2: Environmental review (if discretionary action required)**
-- Type I actions (e.g., projects over 200 residential units in non-urban areas or requiring certain zoning changes): full Environmental Impact Statement (EIS) may be needed
-- Type II actions: categorically exempt (most as-of-right projects)
+- Type I actions (6 NYCRR 617.4): for NYC (population 1M+), residential projects of 1,000+ units; full Environmental Impact Statement (EIS) may be needed
+- Type II actions: categorically exempt (most as-of-right projects). **Green Fast Track for Housing** (effective June 3, 2024) added NYC-specific Type II designations for residential projects up to 250 units meeting certain conditions, based on review of 500+ housing projects from 2013-2023
 - Unlisted actions: Environmental Assessment Statement (EAS) required, which may lead to EIS
 - CEQR process has no statutory deadline -- review duration depends on scope and lead agency
 - Traffic analysis required under CEQR Technical Manual Ch. 16 if project generates 50+ vehicle trip ends per peak hour
@@ -166,7 +166,7 @@ NYC's building regulatory framework draws from laws written across different era
 
 **Zoning Resolution (1961, as amended)**: The ZR has been continuously amended for 65 years. City of Yes for Housing Opportunity (December 2024) is the most recent major amendment. The ZR's layered amendments create situations where the parking requirements in one section of the ZR were written assuming land use patterns that another section of the ZR has since changed.
 
-**The contradiction**: The MDL requires two independent means of egress for most multifamily buildings (Section 187). The Building Code allows single-stair egress for buildings up to 2 stories and 30 feet, with sprinklers. These two standards coexist in different legal authorities, and the stricter standard applies -- but determining which standard is stricter for a specific project configuration requires reconciling a 1929 state law with a 2014 city code.
+**The contradiction**: The MDL requires two independent means of egress for most multifamily buildings (Section 187), but allows a single means with a sprinkler system. The Building Code (Section 1006.3.2 and Table 1006.3.2) allows single exit up to **6 stories** for R-2 occupancy with sprinklers, with a 2,000 sq ft per story floor area cap. These two standards coexist in different legal authorities. The Building Code provision is more permissive than commonly understood, but the MDL's sprinkler exception and the Building Code's table interact in ways that require careful reconciliation for each specific project configuration.
 
 ### B.7 Elevator requirements: NYC vs. everywhere else
 
@@ -178,9 +178,9 @@ The requirement interacts with single-stair proposals: allowing single-stair bui
 
 ### B.8 The live-in superintendent mandate
 
-Multiple Dwelling Law Section 83 requires a resident superintendent (or janitor) for any building with 9 or more apartments where the owner does not reside in the building. The superintendent must live in the building or within 200 feet.
+Multiple Dwelling Law Section 83 requires a resident superintendent (or janitor) for any building with **13 or more families** where the owner does not reside in the building. The superintendent must live in the building or within 200 feet.
 
-**The tangle**: This 1929 rule was written for a era when building systems were manually operated (coal boilers, hand-operated elevators). Modern building systems are automated and remotely monitored. The requirement forces developers of buildings with 9+ units to either:
+**The tangle**: This 1929 rule was written for an era when building systems were manually operated (coal boilers, hand-operated elevators). Modern building systems are automated and remotely monitored. The requirement forces developers of buildings with 13+ units to either:
 - Dedicate a residential unit to the superintendent (reducing rentable/saleable units)
 - Have the owner reside in the building (impractical for institutional developers)
 - House the superintendent within 200 feet (requiring a second property or arrangement)
@@ -352,9 +352,9 @@ The disparity is striking: LPC holds 250 public hearings while DOB holds 1. This
 
 ### D.1 Enforce maximum permitting periods
 
-**Current law**: NYC Admin Code Title 28 sets permit validity periods (28-105.4: permits expire after 2 years, or 12 months without commencement) but does not set maximum review periods for DOB plan examination. DOB publishes service level targets on its website, but these are aspirational -- there is no statutory consequence if DOB misses them.
+**Current law**: Admin Code 28-104.2.7 requires the DOB commissioner to approve or reject completed construction documents within **40 calendar days**, with an optional 20-day extension for good cause. Admin Code 28-105.4 sets permit validity (expire after 2 years, or 12 months without commencement). DOB also publishes operational service level targets (10 business days for NB/A1 first status).
 
-**The gap**: The absence of enforceable review deadlines means agencies face no penalty for delays. When filing volumes surge (as in 2025's 5x increase in NB filings) and staffing is cut (21% since 2021), processing times expand with no legal mechanism to compel faster review.
+**The gap**: The 40-day statutory deadline has no enforcement mechanism -- no deemed-approval provision, no penalty for non-compliance, no applicant remedy. The median new building processing time is 108 days, or 2.7x the statutory limit. When filing volumes surge (as in 2025's 5x increase in NB filings) and staffing is cut (21% since 2021), the already-unenforced deadline becomes even more aspirational.
 
 **What the data shows**: Median new building processing time is 108 days (3.6 months). At P90, it reaches 280 days. These timelines do not include pre-filing activities (LPC review, environmental review, BSA hearings) or post-permit activities (FDNY LOA for CO).
 
@@ -382,19 +382,19 @@ The affidavit path is faster but less commonly used. The re-inspection path crea
 
 ### D.4 Reconsider the live-in super rule
 
-**Current law**: Multiple Dwelling Law Section 83 requires a resident superintendent for buildings with 9 or more apartments where the owner does not reside. The superintendent must live in the building or within 200 feet.
+**Current law**: Multiple Dwelling Law Section 83 requires a resident superintendent for buildings with **13 or more families** where the owner does not reside. The superintendent must live in the building or within 200 feet. Where 2-3 multiple dwellings are connected or adjoining, one resident janitor is sufficient.
 
-**The tangle**: The MDL was written in 1929 for buildings with coal-fired boilers and manual systems. Modern buildings have automated HVAC, electronic access control, and remote monitoring. The 9-unit threshold has not been adjusted, despite changes in building technology.
+**The tangle**: The MDL was written in 1929 for buildings with coal-fired boilers and manual systems. Modern buildings have automated HVAC, electronic access control, and remote monitoring. The 13-unit threshold has not been adjusted, despite changes in building technology.
 
-**What the data shows**: City of Yes density bonuses will produce more 9-15 unit buildings on lots previously zoned for single-family. Each of these buildings will need a superintendent unit, reducing the housing supply gain from the density bonus by approximately 7-11%.
+**What the data shows**: City of Yes density bonuses will produce more 13-20 unit buildings on lots previously zoned for lower density. Each of these buildings will need a superintendent unit, reducing the housing supply gain from the density bonus by approximately 5-8%.
 
 **State vs. city conflict**: The MDL is state law. NYC cannot unilaterally change it. Reform requires action by the New York State Legislature, adding a political dimension beyond city control.
 
 ### D.5 Single stairs and flexible floor plates
 
-**Current law**: Multiple Dwelling Law Section 187 requires two independent means of egress for most multifamily buildings. NYC Building Code Chapter 10 allows single-stair egress only for buildings up to 2 stories and 30 feet in height, with automatic sprinkler protection and maximum 80-foot travel distance.
+**Current law**: Multiple Dwelling Law Section 187 requires two independent means of egress for most multifamily buildings, but allows a single means with a sprinkler system. NYC Building Code Section 1006.3.2 and Table 1006.3.2 allow single exit for R-2 occupancy (apartments) with sprinklers up to **6 stories**, with a **2,000 sq ft per story** floor area cap.
 
-**The tangle**: The MDL and Building Code set different but overlapping egress standards. The MDL is state law; the Building Code is city law. Both must be satisfied, and the stricter standard applies for any given configuration. This dual-authority structure means NYC cannot adopt single-stair reform by amending the Building Code alone -- the MDL would also need state legislative action.
+**The tangle**: The Building Code already permits single-stair buildings taller than commonly understood -- up to 6 stories with the floor area limit. But the 2,000 sq ft cap severely constrains the building footprint, making it viable only on very small lots. The MDL's sprinkler exception and the Building Code's table interact in ways that require careful reconciliation. Expanding the floor area cap or height limit would require amending both the city Building Code and potentially the state MDL, since the MDL is the more restrictive authority for larger floor plates.
 
 **National context**: As of 2025, seven states (Colorado, Montana, New Hampshire, Texas, Maine, Hawaii, Maryland) have advanced single-stair reforms. A Pew Charitable Trusts study (February 2025) found that small single-stairway apartment buildings have a strong safety record. NYC Council introduced Int 0794-2022 to expand single-stair allowances, but it has not passed.
 
