@@ -17,70 +17,78 @@
   .wrap {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 40px 24px 60px;
+    padding: 28px 20px 40px;
   }
 
   /* ── Header ── */
-  .header { margin-bottom: 28px; }
+  .header { margin-bottom: 18px; }
   .header .kicker {
-    font-size: 11px; font-weight: 700;
+    font-size: 10px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 2px;
-    color: #FF9020; margin-bottom: 12px;
+    color: #FF9020; margin-bottom: 8px;
   }
   .header h1 {
-    font-size: 40px; font-weight: 800; color: #fff;
-    line-height: 1.05; margin-bottom: 12px;
+    font-size: 32px; font-weight: 800; color: #fff;
+    line-height: 1.08; margin-bottom: 10px;
     letter-spacing: -0.5px;
   }
   .header .dek {
-    font-size: 16px; color: #999; line-height: 1.55;
+    font-size: 14px; color: #999; line-height: 1.5;
     max-width: 720px;
   }
+  .header .dek strong { color: #FF9020; font-weight: 600; }
 
   /* ── Stat strip ── */
   .stat-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin: 22px 0 26px;
-  }
-  @media (max-width: 640px) {
-    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    gap: 8px;
+    margin: 16px 0 18px;
   }
   .stat-card {
     background: linear-gradient(165deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
     border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 10px;
-    padding: 16px 14px 14px;
+    border-radius: 8px;
+    padding: 12px 10px 10px;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
   .stat-card::before {
     content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
+    top: 0; left: 0; right: 0; height: 2px;
     background: #FF9020;
   }
   .stat-card .number {
-    font-size: 30px; font-weight: 800; color: #fff;
+    font-size: 24px; font-weight: 800; color: #fff;
     line-height: 1; letter-spacing: -1px;
   }
   .stat-card:nth-child(4) .number { color: #FF9020; }
   .stat-card .label {
-    font-size: 9px; color: #777; margin-top: 7px;
+    font-size: 9px; color: #777; margin-top: 6px;
     text-transform: uppercase; letter-spacing: 0.8px;
     font-weight: 600;
   }
   .stat-card .sublabel {
-    font-size: 10px; color: #555; margin-top: 3px;
+    font-size: 9px; color: #555; margin-top: 2px;
     line-height: 1.3;
   }
 
   /* ── Card grid ── */
+  .grid-hint {
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: #888; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .grid-hint::before, .grid-hint::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
   .card-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
   @media (max-width: 900px) {
     .card-grid { grid-template-columns: repeat(3, 1fr); }
@@ -92,58 +100,55 @@
   .tile {
     background: #181816;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 18px 16px 16px;
+    border-radius: 10px;
+    padding: 14px 14px 36px;
     cursor: pointer;
     transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     text-align: left;
     position: relative;
     overflow: hidden;
-    min-height: 160px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
   }
   .tile:hover {
     transform: translateY(-2px);
-    border-color: rgba(255,144,32,0.4);
+    border-color: rgba(255,144,32,0.5);
     background: #1d1d1a;
   }
   .tile::after {
-    content: '→';
+    content: 'Open →';
     position: absolute;
-    right: 14px; bottom: 12px;
-    color: #FF9020; font-size: 16px;
-    opacity: 0; transition: opacity 0.15s, transform 0.15s;
+    right: 12px; bottom: 10px;
+    color: #FF9020; font-size: 10px;
+    font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.85; transition: transform 0.15s, opacity 0.15s;
   }
-  .tile:hover::after { opacity: 1; transform: translateX(2px); }
+  .tile:hover::after { opacity: 1; transform: translateX(3px); }
 
   .tile .tile-kicker {
     font-size: 9px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 1.2px;
-    color: #FF9020; margin-bottom: 8px;
+    color: #FF9020; margin-bottom: 6px;
   }
   .tile h3 {
-    font-size: 15px; font-weight: 700; color: #fff;
-    line-height: 1.25; margin-bottom: 8px;
+    font-size: 14px; font-weight: 700; color: #fff;
+    line-height: 1.25; margin-bottom: 6px;
   }
   .tile .tile-preview {
     font-size: 12px; color: #888;
-    line-height: 1.45;
+    line-height: 1.4;
   }
   .tile .tile-big {
-    font-size: 26px; font-weight: 800; color: #fff;
+    font-size: 24px; font-weight: 800; color: #fff;
     letter-spacing: -0.5px; line-height: 1; margin-bottom: 4px;
   }
   .tile .tile-big.orange { color: #FF9020; }
   .tile .tile-big.red { color: #dc2626; }
   .tile .tile-small {
-    font-size: 11px; color: #777; margin-top: 6px;
-  }
-
-  /* spotlight tile - wider */
-  .tile.span-2 { grid-column: span 2; }
-  @media (max-width: 640px) {
-    .tile.span-2 { grid-column: span 2; }
+    font-size: 11px; color: #888;
+    line-height: 1.4;
   }
 
   /* ── Modal ── */
@@ -531,61 +536,54 @@
     </div>
   </div>
 
+  <div class="grid-hint">Click any card to explore</div>
   <div class="card-grid">
-    <!-- Flow tile -->
-    <div class="tile span-2" data-modal="flow">
+    <div class="tile" data-modal="flow">
       <div class="tile-kicker">Process</div>
-      <h3>The approval path for a new building</h3>
-      <div class="tile-preview">8 regulatory stages. 11+ agencies. Each stage gates the next. Click to see the full flow.</div>
+      <h3>The approval path</h3>
+      <div class="tile-preview">8 regulatory stages. 11+ agencies. Each gates the next.</div>
     </div>
 
-    <!-- Timeline tile -->
     <div class="tile" data-modal="timelines">
       <div class="tile-kicker">Timelines</div>
-      <div class="tile-big orange">108 → 280d</div>
+      <div class="tile-big orange">108→280d</div>
       <div class="tile-small">Median to P90 processing, by percentile and borough</div>
     </div>
 
-    <!-- Matrix tile -->
     <div class="tile" data-modal="matrix">
       <div class="tile-kicker">Jurisdiction</div>
-      <h3>Which agency reviews what</h3>
-      <div class="tile-preview">11 agencies × 8 stages. Primary, required, and conditional reviews.</div>
+      <h3>Who reviews what</h3>
+      <div class="tile-preview">11 agencies × 8 stages. Primary, required, conditional.</div>
     </div>
 
-    <!-- Contradictions tile -->
-    <div class="tile span-2" data-modal="contradictions">
+    <div class="tile" data-modal="contradictions">
       <div class="tile-kicker">Conflicts</div>
-      <h3>Where the rules conflict</h3>
-      <div class="tile-preview">6 specific cases where legal authorities from 1929 to 2024 contradict each other — and add weeks to months of delay.</div>
+      <h3>Where rules clash</h3>
+      <div class="tile-preview">6 cases where 1929-to-2024 authorities contradict each other.</div>
     </div>
 
-    <!-- CO tile -->
     <div class="tile" data-modal="co">
       <div class="tile-kicker">Output</div>
-      <div class="tile-big red">-90%</div>
+      <div class="tile-big red">−90%</div>
       <div class="tile-small">Certificates of Occupancy issued, 2019 vs 2024</div>
     </div>
 
-    <!-- LPC tile -->
     <div class="tile" data-modal="lpc">
       <div class="tile-kicker">Landmarks</div>
-      <div class="tile-big">66 / 222d</div>
+      <div class="tile-big">66/222d</div>
       <div class="tile-small">Cert of Appropriateness median / P90 processing</div>
     </div>
 
-    <!-- Objections tile -->
     <div class="tile" data-modal="objections">
       <div class="tile-kicker">Objections</div>
       <div class="tile-big orange">14.7%</div>
-      <div class="tile-small">New-building filings stuck at objections status</div>
+      <div class="tile-small">New-building filings stuck at objections</div>
     </div>
 
-    <!-- Methodology tile -->
     <div class="tile" data-modal="methodology">
       <div class="tile-kicker">Methodology</div>
-      <h3>Data sources & methods</h3>
-      <div class="tile-preview">9 NYC Open Data feeds. How processing times were calculated; what the limits are.</div>
+      <h3>Sources & methods</h3>
+      <div class="tile-preview">9 NYC Open Data feeds. Calculations, limits, citations.</div>
     </div>
   </div>
 
