@@ -21,29 +21,28 @@
   }
 
   /* ── Header ── */
-  .header { margin-bottom: 18px; }
+  .header { margin-bottom: 16px; }
   .header .kicker {
     font-size: 10px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 2px;
     color: #FF9020; margin-bottom: 8px;
   }
   .header h1 {
-    font-size: 32px; font-weight: 800; color: #fff;
-    line-height: 1.08; margin-bottom: 10px;
+    font-size: 30px; font-weight: 800; color: #fff;
+    line-height: 1.08; margin-bottom: 8px;
     letter-spacing: -0.5px;
   }
   .header .dek {
     font-size: 14px; color: #999; line-height: 1.5;
-    max-width: 720px;
+    max-width: 760px;
   }
-  .header .dek strong { color: #FF9020; font-weight: 600; }
 
-  /* ── Stat strip ── */
+  /* ── Stats strip ── */
   .stat-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    margin: 16px 0 18px;
+    margin: 14px 0 16px;
   }
   .stat-card {
     background: linear-gradient(165deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
@@ -60,7 +59,7 @@
     background: #FF9020;
   }
   .stat-card .number {
-    font-size: 24px; font-weight: 800; color: #fff;
+    font-size: 22px; font-weight: 800; color: #fff;
     line-height: 1; letter-spacing: -1px;
   }
   .stat-card:nth-child(4) .number { color: #FF9020; }
@@ -74,138 +73,131 @@
     line-height: 1.3;
   }
 
-  /* ── Card grid ── */
-  .grid-hint {
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    color: #888; margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .grid-hint::before, .grid-hint::after {
-    content: ''; flex: 1; height: 1px;
-    background: rgba(255,255,255,0.08);
-  }
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-  @media (max-width: 900px) {
-    .card-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (max-width: 640px) {
-    .card-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .tile {
-    background: #181816;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 14px 14px 36px;
-    cursor: pointer;
-    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    min-height: 130px;
-    display: flex;
-    flex-direction: column;
-  }
-  .tile:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,144,32,0.5);
-    background: #1d1d1a;
-  }
-  .tile::after {
-    content: 'Open →';
-    position: absolute;
-    right: 12px; bottom: 10px;
-    color: #FF9020; font-size: 10px;
-    font-weight: 700; letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.85; transition: transform 0.15s, opacity 0.15s;
-  }
-  .tile:hover::after { opacity: 1; transform: translateX(3px); }
-
-  .tile .tile-kicker {
-    font-size: 9px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1.2px;
-    color: #FF9020; margin-bottom: 6px;
-  }
-  .tile h3 {
-    font-size: 14px; font-weight: 700; color: #fff;
-    line-height: 1.25; margin-bottom: 6px;
-  }
-  .tile .tile-preview {
-    font-size: 12px; color: #888;
-    line-height: 1.4;
-  }
-  .tile .tile-big {
-    font-size: 24px; font-weight: 800; color: #fff;
-    letter-spacing: -0.5px; line-height: 1; margin-bottom: 4px;
-  }
-  .tile .tile-big.orange { color: #FF9020; }
-  .tile .tile-big.red { color: #dc2626; }
-  .tile .tile-small {
-    font-size: 11px; color: #888;
-    line-height: 1.4;
-  }
-
-  /* ── Modal ── */
-  .modal-backdrop {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-  }
-  .modal-backdrop.open { display: flex; }
-  .modal {
-    background: #0e0e0e;
+  /* ── Interactive container ── */
+  .interactive {
+    background: #141413;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 14px;
-    max-width: 820px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 32px 32px 28px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  }
+
+  .interactive-hint {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #FF9020;
+    padding: 10px 16px 4px;
+    background: rgba(255,144,32,0.06);
+    border-bottom: 1px solid rgba(255,144,32,0.1);
+  }
+  .interactive-hint::after {
+    content: ' ↓';
+  }
+
+  /* ── Tabs ── */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background: #181816;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  @media (max-width: 900px) {
+    .tabs { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .tabs { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .tab {
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 3px solid transparent;
+    padding: 12px 10px 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, border-color 0.15s;
+    color: inherit;
+    font-family: inherit;
     position: relative;
   }
-  @media (max-width: 640px) {
-    .modal { padding: 24px 20px; }
+  .tab:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .tab:nth-child(4n) { border-right: none; }
+    .tab:nth-child(n+5) { border-top: 1px solid rgba(255,255,255,0.05); }
   }
-  .modal-close {
-    position: sticky;
-    top: 0;
-    float: right;
-    margin: -8px -8px 0 0;
-    background: #181816;
-    border: 1px solid rgba(255,255,255,0.1);
+  @media (max-width: 520px) {
+    .tab:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.05); }
+    .tab:nth-child(2n) { border-right: none; }
+    .tab:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.05); }
+  }
+
+  .tab:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .tab.active {
+    background: #0e0e0e;
+    border-bottom-color: #FF9020;
+  }
+  .tab-kicker {
+    font-size: 9px;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .tab.active .tab-kicker { color: #FF9020; }
+  .tab-label {
+    font-size: 12px;
+    font-weight: 600;
     color: #ccc;
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
+    line-height: 1.2;
+  }
+  .tab.active .tab-label { color: #fff; }
+  .tab-value {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
     line-height: 1;
-    z-index: 2;
+    letter-spacing: -0.3px;
   }
-  .modal-close:hover { background: #222; color: #fff; }
-  .modal .modal-kicker {
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: #FF9020; margin-bottom: 10px;
+  .tab.active .tab-value { color: #FF9020; }
+
+  /* ── Panel ── */
+  .panel-wrap {
+    padding: 26px 24px 24px;
+    min-height: 420px;
   }
-  .modal h2 {
-    font-size: 26px; font-weight: 700; color: #fff;
-    line-height: 1.2; letter-spacing: -0.3px;
-    margin-bottom: 10px;
+  @media (max-width: 520px) {
+    .panel-wrap { padding: 20px 16px; }
   }
-  .modal .modal-dek {
-    font-size: 14px; color: #888;
-    line-height: 1.55; margin-bottom: 22px;
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .panel-kicker {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FF9020;
+    margin-bottom: 8px;
+  }
+  .panel h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .panel-dek {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.55;
+    margin-bottom: 18px;
   }
 
   /* ── Flowchart ── */
@@ -213,7 +205,7 @@
     background: #181816;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
-    padding: 22px 18px 16px;
+    padding: 20px 16px 14px;
     overflow-x: auto;
   }
   .flow-track {
@@ -274,7 +266,7 @@
   }
   .flow-legend {
     display: flex; flex-wrap: wrap; gap: 10px;
-    margin-top: 16px; padding-top: 12px;
+    margin-top: 14px; padding-top: 10px;
     border-top: 1px solid rgba(255,255,255,0.06);
   }
   .flow-legend-item {
@@ -290,7 +282,7 @@
     background: #181816;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
-    padding: 22px 18px;
+    padding: 20px 18px;
   }
   .bars-label {
     font-size: 10px; font-weight: 700; color: #777;
@@ -314,14 +306,13 @@
   .bar-fill {
     height: 100%; border-radius: 4px;
     display: flex; align-items: center;
-    padding-left: 8px; font-size: 10px;
+    padding-right: 10px;
+    justify-content: flex-end;
+    font-size: 10px;
     font-weight: 700; color: #fff;
-    min-width: 30px;
+    min-width: 40px;
     transition: width 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
     width: 0;
-  }
-  .bar-fill.end-label {
-    justify-content: flex-end; padding-right: 10px; padding-left: 0;
   }
 
   /* ── Matrix ── */
@@ -329,11 +320,11 @@
     background: #181816;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
-    padding: 20px 18px;
+    padding: 18px 16px;
     overflow-x: auto;
   }
   .matrix-table {
-    width: 100%; min-width: 640px;
+    width: 100%; min-width: 620px;
     border-collapse: collapse; font-size: 11px;
   }
   .matrix-table th {
@@ -354,7 +345,6 @@
     text-align: left; font-weight: 600;
     color: #ddd; font-size: 11px;
   }
-  .matrix-table tr:hover td { background: rgba(255,255,255,0.02); }
   .matrix-dot {
     display: inline-block;
     width: 20px; height: 20px; border-radius: 4px;
@@ -377,18 +367,18 @@
     background: rgba(255,255,255,0.025);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 10px;
-    padding: 20px 18px;
-    margin: 12px 0;
+    padding: 18px 16px;
+    margin: 10px 0;
   }
   .data-card h3 {
     font-size: 13px; font-weight: 700;
-    color: #ccc; margin-bottom: 12px;
-    padding-bottom: 10px;
+    color: #ccc; margin-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .data-row {
     display: flex; justify-content: space-between;
-    padding: 7px 0; font-size: 13px;
+    padding: 6px 0; font-size: 13px;
     border-bottom: 1px solid rgba(255,255,255,0.03);
     align-items: baseline;
   }
@@ -399,22 +389,22 @@
 
   /* ── Contradiction ── */
   .contradiction {
-    padding: 18px 20px;
-    margin: 12px 0;
+    padding: 16px 18px;
+    margin: 10px 0;
     background: rgba(220,38,38,0.04);
     border: 1px solid rgba(220,38,38,0.12);
     border-radius: 10px;
   }
   .contradiction-header {
     display: flex; align-items: center;
-    gap: 10px; margin-bottom: 8px;
+    gap: 10px; margin-bottom: 6px;
   }
   .contradiction-badge {
-    width: 24px; height: 24px;
+    width: 22px; height: 22px;
     background: #dc2626;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; color: #fff;
+    font-size: 10px; font-weight: 800; color: #fff;
     flex-shrink: 0;
   }
   .contradiction h4 {
@@ -423,40 +413,40 @@
   }
   .contradiction p {
     font-size: 13px; color: #999;
-    line-height: 1.6; margin-left: 34px;
+    line-height: 1.55; margin-left: 32px;
   }
   .contradiction .cite {
     font-size: 11px; color: #555;
-    margin-top: 8px; margin-left: 34px;
+    margin-top: 6px; margin-left: 32px;
     font-style: italic;
   }
 
   /* ── Callout ── */
   .callout {
     border-left: 3px solid #FF9020;
-    padding: 14px 18px;
-    margin: 18px 0;
+    padding: 12px 16px;
+    margin: 14px 0 0;
     background: rgba(255,144,32,0.04);
     border-radius: 0 8px 8px 0;
-    font-size: 13px; color: #aaa; line-height: 1.6;
+    font-size: 13px; color: #aaa; line-height: 1.55;
   }
   .callout strong { color: #FF9020; font-weight: 700; }
 
-  /* ── Methodology text ── */
+  /* ── Methodology body ── */
   .methodology-body p,
   .methodology-body li {
     font-size: 13px; color: #888;
-    line-height: 1.6; margin-bottom: 10px;
+    line-height: 1.55; margin-bottom: 8px;
   }
   .methodology-body strong { color: #bbb; }
-  .methodology-body ul { padding-left: 18px; margin-bottom: 12px; }
+  .methodology-body ul { padding-left: 18px; margin-bottom: 10px; }
   .methodology-body table {
     width: 100%; border-collapse: collapse;
-    margin: 14px 0; font-size: 11px;
+    margin: 12px 0; font-size: 11px;
   }
   .methodology-body th,
   .methodology-body td {
-    padding: 8px 10px; text-align: left;
+    padding: 7px 10px; text-align: left;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     color: #888;
   }
@@ -493,8 +483,7 @@
 
   /* ── Footer ── */
   .footer {
-    margin-top: 36px; padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 20px; padding-top: 16px;
     font-size: 11px; color: #555; line-height: 1.6;
   }
   .footer a { color: #FF9020; text-decoration: none; }
@@ -509,7 +498,7 @@
     <h1>The NYC permitting tangle</h1>
     <div class="dek">
       At least 11 agencies review new construction under different legal authorities from different eras.
-      Click any card below to dig into the overlaps, contradictions, and bottlenecks.
+      Use the tabs below to explore overlaps, contradictions, and bottlenecks.
     </div>
   </div>
 
@@ -536,452 +525,390 @@
     </div>
   </div>
 
-  <div class="grid-hint">Click any card to explore</div>
-  <div class="card-grid">
-    <div class="tile" data-modal="flow">
-      <div class="tile-kicker">Process</div>
-      <h3>The approval path</h3>
-      <div class="tile-preview">8 regulatory stages. 11+ agencies. Each gates the next.</div>
+  <div class="interactive">
+    <div class="interactive-hint">Click a tab to change the view</div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-panel="flow" role="tab">
+        <div class="tab-kicker">Process</div>
+        <div class="tab-label">The approval path</div>
+      </button>
+      <button class="tab" data-panel="timelines" role="tab">
+        <div class="tab-kicker">Timelines</div>
+        <div class="tab-value">108→280d</div>
+      </button>
+      <button class="tab" data-panel="matrix" role="tab">
+        <div class="tab-kicker">Jurisdiction</div>
+        <div class="tab-label">Who reviews what</div>
+      </button>
+      <button class="tab" data-panel="contradictions" role="tab">
+        <div class="tab-kicker">Conflicts</div>
+        <div class="tab-label">Where rules clash</div>
+      </button>
+      <button class="tab" data-panel="co" role="tab">
+        <div class="tab-kicker">Output</div>
+        <div class="tab-value">−90%</div>
+      </button>
+      <button class="tab" data-panel="lpc" role="tab">
+        <div class="tab-kicker">Landmarks</div>
+        <div class="tab-value">66/222d</div>
+      </button>
+      <button class="tab" data-panel="objections" role="tab">
+        <div class="tab-kicker">Objections</div>
+        <div class="tab-value">14.7%</div>
+      </button>
+      <button class="tab" data-panel="methodology" role="tab">
+        <div class="tab-kicker">Methodology</div>
+        <div class="tab-label">Sources & methods</div>
+      </button>
     </div>
 
-    <div class="tile" data-modal="timelines">
-      <div class="tile-kicker">Timelines</div>
-      <div class="tile-big orange">108→280d</div>
-      <div class="tile-small">Median to P90 processing, by percentile and borough</div>
-    </div>
+    <div class="panel-wrap">
 
-    <div class="tile" data-modal="matrix">
-      <div class="tile-kicker">Jurisdiction</div>
-      <h3>Who reviews what</h3>
-      <div class="tile-preview">11 agencies × 8 stages. Primary, required, conditional.</div>
-    </div>
+      <div class="panel active" id="panel-flow">
+        <div class="panel-kicker">Process</div>
+        <h2>The approval path for a new building</h2>
+        <div class="panel-dek">Each stage requires sign-off from one or more agencies before the next can begin. Hover any agency block for details.</div>
+        <div class="flow-container">
+          <div class="flow-track">
+            <div class="flow-stage">
+              <div class="flow-stage-header">1. Pre-filing</div>
+              <div class="flow-agency dcp" data-tip="dcp-pre">DCP<br>Zoning analysis</div>
+              <div class="flow-agency lpc" data-tip="lpc-pre">LPC<br>Landmark review</div>
+              <div class="flow-agency oec" data-tip="oec-pre">OEC<br>CEQR screening</div>
+              <div class="flow-time">Weeks-months</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">2. Env review</div>
+              <div class="flow-agency oec" data-tip="oec-ceqr">OEC<br>CEQR/EIS</div>
+              <div class="flow-agency dot" data-tip="dot-traffic">DOT<br>Traffic study</div>
+              <div class="flow-time">If discretionary: 6-18 mo</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">3. Plan filing</div>
+              <div class="flow-agency dob" data-tip="dob-file">DOB<br>Plan submission</div>
+              <div class="flow-time">1 day</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">4. Plan exam</div>
+              <div class="flow-agency dob" data-tip="dob-exam">DOB<br>Code + zoning</div>
+              <div class="flow-agency fdny" data-tip="fdny-plan">FDNY<br>Fire safety</div>
+              <div class="flow-agency dep" data-tip="dep-plan">DEP<br>Sewer/storm</div>
+              <div class="flow-time">Median 108 days</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">5. Permit</div>
+              <div class="flow-agency dob" data-tip="dob-permit">DOB<br>Work permit</div>
+              <div class="flow-agency dot" data-tip="dot-permit">DOT<br>Street/sidewalk</div>
+              <div class="flow-time">After objections resolved</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">6. Construction</div>
+              <div class="flow-agency dob" data-tip="dob-inspect">DOB<br>Inspections</div>
+              <div class="flow-agency fdny" data-tip="fdny-inspect">FDNY<br>Fire systems</div>
+              <div class="flow-agency dol" data-tip="dol-asbestos">DOL<br>Asbestos</div>
+              <div class="flow-time">12-36 months</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">7. TCO/CO</div>
+              <div class="flow-agency dob" data-tip="dob-co">DOB<br>CO review</div>
+              <div class="flow-agency fdny" data-tip="fdny-loa">FDNY<br>Letter of approval</div>
+              <div class="flow-agency dep" data-tip="dep-co">DEP<br>Sewer sign-off</div>
+              <div class="flow-time">FDNY backlog: ~7 weeks</div>
+              <div class="flow-connector"></div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-stage-header">8. Occupancy</div>
+              <div class="flow-agency hpd" data-tip="hpd-comply">HPD<br>Affordability</div>
+              <div class="flow-agency mta" data-tip="mta-zfa">MTA<br>ZFA compliance</div>
+              <div class="flow-time">Ongoing</div>
+            </div>
+          </div>
+          <div class="flow-legend">
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#2563eb"></div>DOB</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#7c3aed"></div>DCP</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#dc2626"></div>FDNY</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#059669"></div>DEP</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#d97706"></div>DOT</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#be185d"></div>LPC</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#0891b2"></div>HPD</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#65a30d"></div>OEC</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#9333ea"></div>MTA</div>
+            <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#78716c"></div>DOL</div>
+          </div>
+        </div>
+        <div class="callout">
+          <strong>The median project takes 108 days just from DOB filing to first permit</strong> — before construction begins. At the 90th percentile, 280 days. These figures exclude pre-filing reviews (environmental, landmarks, zoning) and post-construction approvals (FDNY, CO).
+        </div>
+      </div>
 
-    <div class="tile" data-modal="contradictions">
-      <div class="tile-kicker">Conflicts</div>
-      <h3>Where rules clash</h3>
-      <div class="tile-preview">6 cases where 1929-to-2024 authorities contradict each other.</div>
-    </div>
+      <div class="panel" id="panel-timelines">
+        <div class="panel-kicker">Timelines</div>
+        <h2>Theoretical minimum vs. actual permitting duration</h2>
+        <div class="panel-dek">If every review ran concurrently and on schedule, a new building permit could be issued in weeks. In practice, sequential dependencies and backlogs stretch the process to months or years.</div>
+        <div class="bars-container" data-animate-bars>
+          <div class="bars-label">DOB filing to first permit (new buildings)</div>
+          <div class="bar-row"><div class="bar-label">Theoretical min</div><div class="bar-track"><div class="bar-fill" style="background:#059669" data-width="7%">30d</div></div></div>
+          <div class="bar-row"><div class="bar-label">P25 (fastest)</div><div class="bar-track"><div class="bar-fill" style="background:#65a30d" data-width="10%">39d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Median</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="27%">108d</div></div></div>
+          <div class="bar-row"><div class="bar-label">P75</div><div class="bar-track"><div class="bar-fill" style="background:#ea580c" data-width="49%">195d</div></div></div>
+          <div class="bar-row"><div class="bar-label">P90</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="70%">280d</div></div></div>
+          <div class="bar-row"><div class="bar-label">P95</div><div class="bar-track"><div class="bar-fill" style="background:#991b1b" data-width="82%">329d</div></div></div>
 
-    <div class="tile" data-modal="co">
-      <div class="tile-kicker">Output</div>
-      <div class="tile-big red">−90%</div>
-      <div class="tile-small">Certificates of Occupancy issued, 2019 vs 2024</div>
-    </div>
+          <div class="bars-label">By borough (median days)</div>
+          <div class="bar-row"><div class="bar-label">Staten Island</div><div class="bar-track"><div class="bar-fill" style="background:#059669" data-width="8%">33d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Queens</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="31%">124d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Brooklyn</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="32%">129d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Bronx</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="33%">132d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Manhattan</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="33%">133d</div></div></div>
+        </div>
+      </div>
 
-    <div class="tile" data-modal="lpc">
-      <div class="tile-kicker">Landmarks</div>
-      <div class="tile-big">66/222d</div>
-      <div class="tile-small">Cert of Appropriateness median / P90 processing</div>
-    </div>
+      <div class="panel" id="panel-matrix">
+        <div class="panel-kicker">Jurisdiction</div>
+        <h2>Which agencies review what, and when</h2>
+        <div class="panel-dek">Blue = primary reviewer. Orange = required for most projects. Gray = conditional (only if project triggers specific thresholds).</div>
+        <div class="matrix-container">
+          <table class="matrix-table">
+            <thead>
+              <tr><th>Agency</th><th>Pre-file</th><th>Env</th><th>Filing</th><th>Plan exam</th><th>Permit</th><th>Construct</th><th>TCO/CO</th><th>Post-occ</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DOB</td><td></td><td></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot required">R</span></td></tr>
+              <tr><td>DCP</td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>FDNY</td><td></td><td></td><td></td><td><span class="matrix-dot required">R</span></td><td></td><td><span class="matrix-dot required">R</span></td><td><span class="matrix-dot required">R</span></td><td></td></tr>
+              <tr><td>DEP</td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot required">R</span></td><td></td></tr>
+              <tr><td>DOT</td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td><span class="matrix-dot required">R</span></td><td><span class="matrix-dot required">R</span></td><td></td><td></td></tr>
+              <tr><td>LPC</td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
+              <tr><td>BSA</td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>HPD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
+              <tr><td>OEC</td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>MTA</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
+              <tr><td>NYS DOL</td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+          <div class="matrix-legend">
+            <div class="matrix-legend-item"><span class="matrix-dot primary" style="width:16px;height:16px;font-size:9px;line-height:16px">P</span> Primary reviewer</div>
+            <div class="matrix-legend-item"><span class="matrix-dot required" style="width:16px;height:16px;font-size:9px;line-height:16px">R</span> Required for most projects</div>
+            <div class="matrix-legend-item"><span class="matrix-dot conditional" style="width:16px;height:16px;font-size:9px;line-height:16px">C</span> Conditional (if triggered)</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="tile" data-modal="objections">
-      <div class="tile-kicker">Objections</div>
-      <div class="tile-big orange">14.7%</div>
-      <div class="tile-small">New-building filings stuck at objections</div>
-    </div>
+      <div class="panel" id="panel-contradictions">
+        <div class="panel-kicker">Conflicts</div>
+        <h2>Where the rules conflict</h2>
+        <div class="panel-dek">Specific cases where different legal authorities create contradictory or compounding requirements.</div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">1</div><h4>DOB vs. FDNY: parallel fire safety review</h4></div>
+          <p>Both agencies review fire protection systems under separate legal authorities. DOB reviews under the 2014 Building Code; FDNY reviews under 3 RCNY Chapter 9 and the NYC Fire Code. FDNY review is described as "concurrent" but operates sequentially in practice — FDNY will not schedule re-inspection until DOB has substantially approved plans. FDNY re-inspection backlog: approximately 7 weeks.</p>
+          <div class="cite">Building Code Ch. 9 (DOB) vs. 3 RCNY Ch. 9 (FDNY); Admin Code Title 29</div>
+        </div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">2</div><h4>MDL vs. Building Code: egress standards</h4></div>
+          <p>Multiple Dwelling Law Section 187 (state law, 1929) requires two independent means of egress for most multifamily buildings, but allows a single means with sprinklers. Building Code Section 1006.3.2 (city law, 2014) already permits single exit up to 6 stories for apartments with sprinklers — but with a 2,000 sq ft per story cap that makes it viable only on very small lots. Expanding this requires amending both city and state law.</p>
+          <div class="cite">MDL Section 187 vs. NYC Building Code Ch. 10, Section 1006</div>
+        </div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">3</div><h4>City of Yes vs. DOB systems</h4></div>
+          <p>The December 2024 City of Yes for Housing Opportunity amended the Zoning Resolution to eliminate parking mandates, legalize ADUs, and expand transit-oriented development. DOB plan examiners must now apply these new provisions, but DOB NOW's automated zoning-check modules have not been fully updated. Projects filed under the new rules may receive objections based on the old zoning parameters.</p>
+          <div class="cite">ZR amendments (Dec 2024) vs. DOB NOW system validation rules</div>
+        </div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">4</div><h4>Self-certification: speed without accountability</h4></div>
+          <p>Admin Code 28-104.2.1 allows licensed professionals to self-certify code compliance, bypassing DOB review. But DOB does not always audit self-certified applications within the mandated 45 days, and the DOB NOW system lacks a self-certification tracking field — meaning the city cannot determine what share of current construction is self-certified.</p>
+          <div class="cite">Admin Code 28-104.2.1 and 28-104.2.1.1; NYC Comptroller audit (2023)</div>
+        </div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">5</div><h4>The 60th Street line</h4></div>
+          <p>CEQR Technical Manual Chapter 16 uses 60th Street in Manhattan as a dividing line for traffic modeling: 50% taxi overlap below, 25% above. An identical project at 59th Street and 61st Street faces different environmental review standards. Below 60th Street, transit mode share exceeds 70% and car ownership is among the lowest in the US, yet traffic analysis is still required for projects generating 50+ peak-hour vehicle trips.</p>
+          <div class="cite">CEQR Technical Manual Ch. 16, Section 311</div>
+        </div>
+        <div class="contradiction">
+          <div class="contradiction-header"><div class="contradiction-badge">6</div><h4>Live-in super: 1929 rule meets 2025 buildings</h4></div>
+          <p>MDL Section 83 requires a resident superintendent for buildings with 13+ families where the owner does not reside. This 1929 rule was written for coal-boiler buildings with manual systems. Modern buildings with automated HVAC and remote monitoring still must dedicate a unit to the super, reducing housing supply by 5-8% in mid-size buildings. The MDL is state law — NYC cannot change it unilaterally.</p>
+          <div class="cite">Multiple Dwelling Law Section 83 (NYS, 1929)</div>
+        </div>
+      </div>
 
-    <div class="tile" data-modal="methodology">
-      <div class="tile-kicker">Methodology</div>
-      <h3>Sources & methods</h3>
-      <div class="tile-preview">9 NYC Open Data feeds. Calculations, limits, citations.</div>
+      <div class="panel" id="panel-co">
+        <div class="panel-kicker">Output</div>
+        <h2>Certificate of Occupancy issuance, 2019-2024</h2>
+        <div class="panel-dek">COs issued for new buildings and major alterations (A1) have declined 90% from 2019, even as filing volumes increased.</div>
+        <div class="bars-container" data-animate-bars>
+          <div class="bar-row"><div class="bar-label">2019</div><div class="bar-track"><div class="bar-fill" style="background:#2563eb" data-width="100%">17,217</div></div></div>
+          <div class="bar-row"><div class="bar-label">2020</div><div class="bar-track"><div class="bar-fill" style="background:#2563eb" data-width="89%">15,250</div></div></div>
+          <div class="bar-row"><div class="bar-label">2021</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="36%">6,158</div></div></div>
+          <div class="bar-row"><div class="bar-label">2022</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="20%">3,439</div></div></div>
+          <div class="bar-row"><div class="bar-label">2023</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="15%">2,662</div></div></div>
+          <div class="bar-row"><div class="bar-label">2024</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="10%">1,737</div></div></div>
+        </div>
+        <div class="callout">
+          <strong>DOB staffing fell 21.6%</strong> (662 to 519 construction staff, 2021-2024) while new building filings surged 5.2x (2,559 to 13,337). The staffing-to-filing ratio deteriorated by approximately 6.6x.
+        </div>
+      </div>
+
+      <div class="panel" id="panel-lpc">
+        <div class="panel-kicker">Landmarks</div>
+        <h2>LPC processing times by permit type</h2>
+        <div class="panel-dek">Landmarks Preservation Commission review adds a sequential dependency before DOB filing. For the most complex review type (Certificate of Appropriateness), the P90 is 222 days.</div>
+        <div class="bars-container" data-animate-bars>
+          <div class="bars-label">Median processing days by LPC regulation type</div>
+          <div class="bar-row"><div class="bar-label">Expedited CNE</div><div class="bar-track"><div class="bar-fill" style="background:#059669" data-width="1%">1d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Auth to proceed</div><div class="bar-track"><div class="bar-fill" style="background:#059669" data-width="4%">9d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Compliance</div><div class="bar-track"><div class="bar-fill" style="background:#65a30d" data-width="5%">10d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Cert of No Effect</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="8%">17d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Minor work</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="8%">17d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Miscellaneous</div><div class="bar-track"><div class="bar-fill" style="background:#FF9020" data-width="10%">22d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Cert of Approp</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="30%">66d</div></div></div>
+
+          <div class="bars-label">P90 processing days (1 in 10 projects waits this long)</div>
+          <div class="bar-row"><div class="bar-label">Cert of No Effect</div><div class="bar-track"><div class="bar-fill" style="background:#ea580c" data-width="48%">106d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Minor work</div><div class="bar-track"><div class="bar-fill" style="background:#ea580c" data-width="46%">101d</div></div></div>
+          <div class="bar-row"><div class="bar-label">Cert of Approp</div><div class="bar-track"><div class="bar-fill" style="background:#dc2626" data-width="100%">222d</div></div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-objections">
+        <div class="panel-kicker">Objections</div>
+        <h2>DOB objection rates</h2>
+        <div class="panel-dek">14.7% of new building filings are currently stuck at "Objections" status — plans rejected by DOB for code or zoning violations. Each objection cycle adds weeks to months.</div>
+        <div class="data-card">
+          <h3>New building filings by status (20,870 filings, 2024-present)</h3>
+          <div class="data-row"><div class="data-label">Approved</div><div class="data-value">10,877 (52%)</div></div>
+          <div class="data-row"><div class="data-label">Permit issued (entire)</div><div class="data-value">3,375 (16%)</div></div>
+          <div class="data-row"><div class="data-label">Objections</div><div class="data-value highlight">3,075 (14.7%)</div></div>
+          <div class="data-row"><div class="data-label">Plan examiner review</div><div class="data-value">1,426 (6.8%)</div></div>
+          <div class="data-row"><div class="data-label">Withdrawn</div><div class="data-value">681 (3.3%)</div></div>
+          <div class="data-row"><div class="data-label">Other statuses</div><div class="data-value">436 (2.1%)</div></div>
+        </div>
+        <div class="data-card">
+          <h3>New buildings vs. alterations</h3>
+          <div class="data-row"><div class="data-label">NB objection rate</div><div class="data-value highlight">14.7%</div></div>
+          <div class="data-row"><div class="data-label">Alteration objection rate</div><div class="data-value">5.1%</div></div>
+          <div class="data-row"><div class="data-label">NB median processing days</div><div class="data-value highlight">108</div></div>
+          <div class="data-row"><div class="data-label">Alteration median processing days</div><div class="data-value">10</div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-methodology">
+        <div class="panel-kicker">Methodology</div>
+        <h2>Data sources and methodology</h2>
+        <div class="panel-dek">All figures are auditable. Here is where the data came from, how it was calculated, and what it cannot tell you.</div>
+        <div class="methodology-body">
+          <p>All data was pulled from NYC Open Data Socrata APIs on April 1, 2026. Processing times calculated as the difference between filing_date and first_permit_date (DOB) or received_date and issue_date (LPC).</p>
+          <table>
+            <thead>
+              <tr><th>Dataset</th><th>Socrata ID</th><th>Records</th><th>Date range</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DOB NOW: Build job filings (NB)</td><td>w9ak-ipjd</td><td>20,870</td><td>2024-present</td></tr>
+              <tr><td>DOB NOW: Build job filings (Alt)</td><td>w9ak-ipjd</td><td>50,000</td><td>2025-present</td></tr>
+              <tr><td>DOB Certificates of Occupancy</td><td>bs8b-p36w</td><td>48,127</td><td>2019-present</td></tr>
+              <tr><td>DOB complaints</td><td>eabe-havv</td><td>50,000</td><td>2022-present</td></tr>
+              <tr><td>DOB violations</td><td>3h2n-5cm9</td><td>50,000</td><td>2022-present</td></tr>
+              <tr><td>LPC permit applications</td><td>dpm2-m9mq</td><td>50,000</td><td>2021-present</td></tr>
+              <tr><td>ULURP/land use applications</td><td>hgx4-8ukb</td><td>10,000</td><td>All available</td></tr>
+              <tr><td>NYC Housing Database</td><td>hg8x-zxpr</td><td>5,437</td><td>2019-present</td></tr>
+              <tr><td>City Record (hearings/rules)</td><td>dg92-zbpx</td><td>6,126</td><td>2022-present</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Processing time methodology:</strong> Calendar days between filing_date and first_permit_date for DOB filings, and received_date to issue_date for LPC applications. Records with negative/zero processing times were excluded, as were records exceeding 3,650 days.</p>
+          <p><strong>Limitations:</strong></p>
+          <ul>
+            <li>DOB NOW migration (2020-2022) created a break in the time series</li>
+            <li>FDNY plan review has no public dataset; 7-week re-inspection backlog is from industry reports and the NYC Comptroller</li>
+            <li>Self-certification data is not available in DOB NOW</li>
+            <li>CO issuance data includes both TCOs and final COs</li>
+            <li>Processing times measure DOB internal review only; pre-filing (LPC, CEQR, ULURP) and post-permit (FDNY LOA, final CO) are separate</li>
+          </ul>
+          <p><strong>Regulatory citations:</strong> Current as of April 2026. Key authorities: NYC Admin Code Title 28 (Buildings), Title 29 (Fire), Title 25 Ch. 3 (Landmarks); NYC Building Code (2014, as amended); NYC Zoning Resolution; Multiple Dwelling Law (NYS); CEQR Technical Manual (2025 edition); NYC Charter Chapters 8, 26, 27, 45.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <div class="footer">
     Data: NYC Department of Buildings, NYC Landmarks Preservation Commission, NYC City Record via NYC Open Data.
-    Regulatory text: NYC Administrative Code, NYC Building Code, NYC Zoning Resolution, Multiple Dwelling Law, CEQR Technical Manual.
     Last updated April 1, 2026. See also: <a href="timelines.html">How long does it take to build in NYC?</a>
   </div>
 </div>
 
-<!-- Modals -->
-<div class="modal-backdrop" id="backdrop">
-  <div class="modal" id="modal">
-    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<!-- Agency tooltip -->
 <div class="tooltip" id="tooltip"></div>
 
 <script>
 const tips = {
   'dcp-pre': { title: 'DCP: Zoning analysis', text: 'Determines whether project conforms to Zoning Resolution as-of-right or requires discretionary action (ULURP). If zoning change needed, adds 7-11 months minimum.', cite: 'NYC Charter Ch. 8; ZR Articles I-XIV' },
   'lpc-pre': { title: 'LPC: Landmark review', text: 'Required before DOB filing for any work on designated landmarks or within 157 historic districts (37,000+ properties). Median: 14 days; Certificate of Appropriateness median: 66 days, P90: 222 days.', cite: 'Admin Code Title 25, Ch. 3' },
-  'oec-pre': { title: 'OEC: CEQR screening', text: 'Determines whether project triggers City Environmental Quality Review. Type II actions (most as-of-right) are exempt. Type I and Unlisted actions require Environmental Assessment Statement.', cite: 'Executive Order 91 (1977); 43 RCNY Ch. 6' },
-  'oec-ceqr': { title: 'OEC: Environmental review', text: 'Full CEQR review for discretionary actions. No statutory deadline. Includes traffic, air quality, noise, shadows, historic resources. Can add 6-18 months for complex projects requiring EIS.', cite: 'CEQR Technical Manual (2025 edition)' },
-  'dot-traffic': { title: 'DOT: Traffic analysis', text: 'Required if project generates 50+ vehicle trip ends per peak hour. Below 60th Street in Manhattan, 50% taxi overlap assumed; above 60th Street, 25%. Adds months to environmental review.', cite: 'CEQR Technical Manual Ch. 16' },
-  'dob-file': { title: 'DOB: Plan submission', text: 'Licensed PE or RA files plans via DOB NOW: Build. Two pathways: DOB plan examination or professional self-certification (Admin Code 28-104.2.1).', cite: 'Admin Code Title 28, Art. 104' },
+  'oec-pre': { title: 'OEC: CEQR screening', text: 'Determines whether project triggers City Environmental Quality Review. Type II actions (most as-of-right) are exempt.', cite: 'Executive Order 91 (1977); 43 RCNY Ch. 6' },
+  'oec-ceqr': { title: 'OEC: Environmental review', text: 'Full CEQR review for discretionary actions. No statutory deadline. Can add 6-18 months for complex projects requiring EIS.', cite: 'CEQR Technical Manual (2025 edition)' },
+  'dot-traffic': { title: 'DOT: Traffic analysis', text: 'Required if project generates 50+ vehicle trip ends per peak hour. Below 60th Street in Manhattan, 50% taxi overlap assumed; above 60th Street, 25%.', cite: 'CEQR Technical Manual Ch. 16' },
+  'dob-file': { title: 'DOB: Plan submission', text: 'Licensed PE or RA files plans via DOB NOW: Build. Two pathways: DOB plan examination or professional self-certification.', cite: 'Admin Code Title 28, Art. 104' },
   'dob-exam': { title: 'DOB: Plan examination', text: 'Reviews structural integrity, egress, zoning compliance, and construction safety. Median processing: 108 days for new buildings. 14.7% of NB filings receive objections.', cite: 'Admin Code Title 28; NYC Building Code (2014)' },
   'fdny-plan': { title: 'FDNY: Fire protection review', text: 'Reviews fire protection systems (sprinklers, alarms, standpipe) under separate authority from DOB. Described as concurrent but operates sequentially in practice.', cite: '3 RCNY Ch. 9; Admin Code Title 29' },
   'dep-plan': { title: 'DEP: Sewer and stormwater', text: 'Reviews sewer connection and stormwater management for projects with 20,000+ sq ft soil disturbance or 5,000+ sq ft new impervious surface.', cite: 'Admin Code Title 24; 15 RCNY Ch. 31' },
-  'dob-permit': { title: 'DOB: Work permit', text: 'Issued once all objections are resolved and all concurrent agency reviews are complete. Valid for 2 years; expires if work not commenced within 12 months.', cite: 'Admin Code 28-105.4' },
+  'dob-permit': { title: 'DOB: Work permit', text: 'Issued once all objections are resolved and all concurrent agency reviews are complete. Valid for 2 years.', cite: 'Admin Code 28-105.4' },
   'dot-permit': { title: 'DOT: Street and sidewalk permits', text: 'Required for street openings, sidewalk closures, crane operations, and curb cuts. Separate application process from DOB.', cite: 'Admin Code Title 19' },
-  'dob-inspect': { title: 'DOB: Progress inspections', text: 'Mandated inspections at construction milestones (foundation, framing, etc.). Special inspection requirements for structural work.', cite: 'Admin Code Title 28, Art. 116' },
+  'dob-inspect': { title: 'DOB: Progress inspections', text: 'Mandated inspections at construction milestones. Special inspection requirements for structural work.', cite: 'Admin Code Title 28, Art. 116' },
   'fdny-inspect': { title: 'FDNY: Fire system inspection', text: 'Inspects installed fire protection systems. Re-inspection appointment backlog runs approximately 7 weeks.', cite: '3 RCNY Ch. 9' },
-  'dol-asbestos': { title: 'NYS DOL: Asbestos abatement', text: 'Required for demolition and renovation projects that disturb asbestos-containing materials. State-level permit, separate from all city agencies.', cite: 'Labor Law Art. 30' },
+  'dol-asbestos': { title: 'NYS DOL: Asbestos abatement', text: 'Required for demolition and renovation projects that disturb asbestos-containing materials. State-level permit.', cite: 'Labor Law Art. 30' },
   'dob-co': { title: 'DOB: Certificate of Occupancy', text: 'Issues TCO and final CO once all inspections complete, violations resolved, and concurrent agency sign-offs received. CO issuance dropped 90% from 2019 to 2024.', cite: 'Admin Code Title 28, Art. 118' },
-  'fdny-loa': { title: 'FDNY: Letter of Approval', text: 'Required before DOB can issue TCO. Two paths: FDNY re-inspection (~7 week wait) or fire alarm affidavit (faster but less common).', cite: '3 RCNY Ch. 9; Admin Code Title 29' },
+  'fdny-loa': { title: 'FDNY: Letter of Approval', text: 'Required before DOB can issue TCO. Two paths: FDNY re-inspection (~7 week wait) or fire alarm affidavit.', cite: '3 RCNY Ch. 9; Admin Code Title 29' },
   'dep-co': { title: 'DEP: Sewer sign-off', text: 'Final sign-off on sewer connections and stormwater management systems. Must be completed before CO issuance.', cite: 'Admin Code Title 24' },
-  'hpd-comply': { title: 'HPD: Affordable housing compliance', text: 'Ongoing monitoring for projects using affordable housing programs (485-x, inclusionary housing). Certifies unit affordability and tenant eligibility.', cite: 'Admin Code Title 26' },
-  'mta-zfa': { title: 'MTA: Zoning for Accessibility', text: 'For projects using ZFA density bonus: MTA verifies transit accessibility improvements are constructed per agreement. Two ZFA elevators in progress as of 2026.', cite: 'ZR; Public Authorities Law' }
+  'hpd-comply': { title: 'HPD: Affordable housing compliance', text: 'Ongoing monitoring for projects using affordable housing programs (485-x, inclusionary housing).', cite: 'Admin Code Title 26' },
+  'mta-zfa': { title: 'MTA: Zoning for Accessibility', text: 'For projects using ZFA density bonus: MTA verifies transit accessibility improvements are constructed per agreement.', cite: 'ZR; Public Authorities Law' }
 };
 
-const modals = {
-  flow: {
-    kicker: 'Process',
-    title: 'The approval path for a new building',
-    dek: 'Each stage requires sign-off from one or more agencies before the next can begin. Hover any agency block for details.',
-    html: `
-      <div class="flow-container">
-        <div class="flow-track">
-          <div class="flow-stage">
-            <div class="flow-stage-header">1. Pre-filing</div>
-            <div class="flow-agency dcp" data-tip="dcp-pre">DCP<br>Zoning analysis</div>
-            <div class="flow-agency lpc" data-tip="lpc-pre">LPC<br>Landmark review</div>
-            <div class="flow-agency oec" data-tip="oec-pre">OEC<br>CEQR screening</div>
-            <div class="flow-time">Weeks-months</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">2. Env review</div>
-            <div class="flow-agency oec" data-tip="oec-ceqr">OEC<br>CEQR/EIS</div>
-            <div class="flow-agency dot" data-tip="dot-traffic">DOT<br>Traffic study</div>
-            <div class="flow-time">If discretionary: 6-18 mo</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">3. Plan filing</div>
-            <div class="flow-agency dob" data-tip="dob-file">DOB<br>Plan submission</div>
-            <div class="flow-time">1 day</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">4. Plan exam</div>
-            <div class="flow-agency dob" data-tip="dob-exam">DOB<br>Code + zoning</div>
-            <div class="flow-agency fdny" data-tip="fdny-plan">FDNY<br>Fire safety</div>
-            <div class="flow-agency dep" data-tip="dep-plan">DEP<br>Sewer/storm</div>
-            <div class="flow-time">Median 108 days</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">5. Permit</div>
-            <div class="flow-agency dob" data-tip="dob-permit">DOB<br>Work permit</div>
-            <div class="flow-agency dot" data-tip="dot-permit">DOT<br>Street/sidewalk</div>
-            <div class="flow-time">After objections resolved</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">6. Construction</div>
-            <div class="flow-agency dob" data-tip="dob-inspect">DOB<br>Inspections</div>
-            <div class="flow-agency fdny" data-tip="fdny-inspect">FDNY<br>Fire systems</div>
-            <div class="flow-agency dol" data-tip="dol-asbestos">DOL<br>Asbestos</div>
-            <div class="flow-time">12-36 months</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">7. TCO/CO</div>
-            <div class="flow-agency dob" data-tip="dob-co">DOB<br>CO review</div>
-            <div class="flow-agency fdny" data-tip="fdny-loa">FDNY<br>Letter of approval</div>
-            <div class="flow-agency dep" data-tip="dep-co">DEP<br>Sewer sign-off</div>
-            <div class="flow-time">FDNY backlog: ~7 weeks</div>
-            <div class="flow-connector"></div>
-          </div>
-          <div class="flow-stage">
-            <div class="flow-stage-header">8. Occupancy</div>
-            <div class="flow-agency hpd" data-tip="hpd-comply">HPD<br>Affordability</div>
-            <div class="flow-agency mta" data-tip="mta-zfa">MTA<br>ZFA compliance</div>
-            <div class="flow-time">Ongoing</div>
-          </div>
-        </div>
-        <div class="flow-legend">
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#2563eb"></div>DOB</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#7c3aed"></div>DCP</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#dc2626"></div>FDNY</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#059669"></div>DEP</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#d97706"></div>DOT</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#be185d"></div>LPC</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#4338ca"></div>BSA</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#0891b2"></div>HPD</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#65a30d"></div>OEC</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#9333ea"></div>MTA</div>
-          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#78716c"></div>DOL</div>
-        </div>
-      </div>
-      <div class="callout" style="margin-top:16px">
-        <strong>The median project takes 108 days just from DOB filing to first permit</strong> — before construction begins. At the 90th percentile, 280 days. These figures do not include pre-filing reviews (environmental, landmarks, zoning) or post-construction approvals (FDNY, Certificate of Occupancy).
-      </div>
-    `
-  },
+// Tab switching
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
 
-  timelines: {
-    kicker: 'Timelines',
-    title: 'Theoretical minimum vs. actual permitting duration',
-    dek: 'If every review ran concurrently and on schedule, a new building permit could be issued in weeks. In practice, sequential dependencies and backlogs stretch the process to months or years.',
-    html: `
-      <div class="bars-container" data-animate-bars>
-        <div class="bars-label">DOB filing to first permit (new buildings)</div>
-        <div class="bar-row"><div class="bar-label">Theoretical min</div><div class="bar-track"><div class="bar-fill end-label" style="background:#059669" data-width="7%">30d</div></div></div>
-        <div class="bar-row"><div class="bar-label">P25 (fastest)</div><div class="bar-track"><div class="bar-fill end-label" style="background:#65a30d" data-width="10%">39d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Median</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="27%">108d</div></div></div>
-        <div class="bar-row"><div class="bar-label">P75</div><div class="bar-track"><div class="bar-fill end-label" style="background:#ea580c" data-width="49%">195d</div></div></div>
-        <div class="bar-row"><div class="bar-label">P90</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="70%">280d</div></div></div>
-        <div class="bar-row"><div class="bar-label">P95</div><div class="bar-track"><div class="bar-fill end-label" style="background:#991b1b" data-width="82%">329d</div></div></div>
-
-        <div class="bars-label">By borough (median days)</div>
-        <div class="bar-row"><div class="bar-label">Staten Island</div><div class="bar-track"><div class="bar-fill end-label" style="background:#059669" data-width="8%">33d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Queens</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="31%">124d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Brooklyn</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="32%">129d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Bronx</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="33%">132d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Manhattan</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="33%">133d</div></div></div>
-      </div>
-    `
-  },
-
-  matrix: {
-    kicker: 'Jurisdiction',
-    title: 'Which agencies review what, and when',
-    dek: 'Blue = primary reviewer. Orange = required for most projects. Gray = conditional (only if project triggers specific thresholds).',
-    html: `
-      <div class="matrix-container">
-        <table class="matrix-table">
-          <thead>
-            <tr>
-              <th>Agency</th><th>Pre-file</th><th>Env</th><th>Filing</th><th>Plan exam</th><th>Permit</th><th>Construct</th><th>TCO/CO</th><th>Post-occ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>DOB</td><td></td><td></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot primary">P</span></td><td><span class="matrix-dot required">R</span></td></tr>
-            <tr><td>DCP</td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>FDNY</td><td></td><td></td><td></td><td><span class="matrix-dot required">R</span></td><td></td><td><span class="matrix-dot required">R</span></td><td><span class="matrix-dot required">R</span></td><td></td></tr>
-            <tr><td>DEP</td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot required">R</span></td><td></td></tr>
-            <tr><td>DOT</td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td><span class="matrix-dot required">R</span></td><td><span class="matrix-dot required">R</span></td><td></td><td></td></tr>
-            <tr><td>LPC</td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
-            <tr><td>BSA</td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>HPD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
-            <tr><td>OEC</td><td><span class="matrix-dot conditional">C</span></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>MTA</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td></tr>
-            <tr><td>NYS DOL</td><td></td><td></td><td></td><td></td><td></td><td><span class="matrix-dot conditional">C</span></td><td></td><td></td></tr>
-          </tbody>
-        </table>
-        <div class="matrix-legend">
-          <div class="matrix-legend-item"><span class="matrix-dot primary" style="width:16px;height:16px;font-size:9px;line-height:16px">P</span> Primary reviewer</div>
-          <div class="matrix-legend-item"><span class="matrix-dot required" style="width:16px;height:16px;font-size:9px;line-height:16px">R</span> Required for most projects</div>
-          <div class="matrix-legend-item"><span class="matrix-dot conditional" style="width:16px;height:16px;font-size:9px;line-height:16px">C</span> Conditional (if triggered)</div>
-        </div>
-      </div>
-    `
-  },
-
-  contradictions: {
-    kicker: 'Conflicts',
-    title: 'Where the rules conflict',
-    dek: 'Specific cases where different legal authorities create contradictory or compounding requirements.',
-    html: `
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">1</div><h4>DOB vs. FDNY: parallel fire safety review</h4></div>
-        <p>Both agencies review fire protection systems under separate legal authorities. DOB reviews under the 2014 Building Code; FDNY reviews under 3 RCNY Chapter 9 and the NYC Fire Code. FDNY review is described as "concurrent" but operates sequentially in practice — FDNY will not schedule re-inspection until DOB has substantially approved plans. FDNY re-inspection backlog: approximately 7 weeks.</p>
-        <div class="cite">Building Code Ch. 9 (DOB) vs. 3 RCNY Ch. 9 (FDNY); Admin Code Title 29</div>
-      </div>
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">2</div><h4>MDL vs. Building Code: egress standards</h4></div>
-        <p>Multiple Dwelling Law Section 187 (state law, 1929) requires two independent means of egress for most multifamily buildings, but allows a single means with sprinklers. Building Code Section 1006.3.2 (city law, 2014) already permits single exit up to 6 stories for apartments with sprinklers — but with a 2,000 sq ft per story cap that makes it viable only on very small lots. Expanding this requires amending both city and state law.</p>
-        <div class="cite">MDL Section 187 vs. NYC Building Code Ch. 10, Section 1006</div>
-      </div>
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">3</div><h4>City of Yes vs. DOB systems</h4></div>
-        <p>The December 2024 City of Yes for Housing Opportunity amended the Zoning Resolution to eliminate parking mandates, legalize ADUs, and expand transit-oriented development. DOB plan examiners must now apply these new provisions, but DOB NOW's automated zoning-check modules have not been fully updated. Projects filed under the new rules may receive objections based on the old zoning parameters.</p>
-        <div class="cite">ZR amendments (Dec 2024) vs. DOB NOW system validation rules</div>
-      </div>
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">4</div><h4>Self-certification: speed without accountability</h4></div>
-        <p>Admin Code 28-104.2.1 allows licensed professionals to self-certify code compliance, bypassing DOB review. But DOB does not always audit self-certified applications within the mandated 45 days, and the DOB NOW system lacks a self-certification tracking field — meaning the city cannot determine what share of current construction is self-certified.</p>
-        <div class="cite">Admin Code 28-104.2.1 and 28-104.2.1.1; NYC Comptroller audit (2023)</div>
-      </div>
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">5</div><h4>The 60th Street line</h4></div>
-        <p>CEQR Technical Manual Chapter 16 uses 60th Street in Manhattan as a dividing line for traffic modeling: 50% taxi overlap below, 25% above. An identical project at 59th Street and 61st Street faces different environmental review standards. Below 60th Street, transit mode share exceeds 70% and car ownership is among the lowest in the US, yet traffic analysis is still required for projects generating 50+ peak-hour vehicle trips.</p>
-        <div class="cite">CEQR Technical Manual Ch. 16, Section 311</div>
-      </div>
-      <div class="contradiction">
-        <div class="contradiction-header"><div class="contradiction-badge">6</div><h4>Live-in super: 1929 rule meets 2025 buildings</h4></div>
-        <p>MDL Section 83 requires a resident superintendent for buildings with 13+ families where the owner does not reside. This 1929 rule was written for coal-boiler buildings with manual systems. Modern buildings with automated HVAC and remote monitoring still must dedicate a unit to the super, reducing housing supply by 5-8% in mid-size buildings. The MDL is state law — NYC cannot change it unilaterally.</p>
-        <div class="cite">Multiple Dwelling Law Section 83 (NYS, 1929)</div>
-      </div>
-    `
-  },
-
-  co: {
-    kicker: 'Output',
-    title: 'Certificate of Occupancy issuance, 2019-2024',
-    dek: 'COs issued for new buildings and major alterations (A1) have declined 90% from 2019, even as filing volumes increased.',
-    html: `
-      <div class="bars-container" data-animate-bars>
-        <div class="bar-row"><div class="bar-label">2019</div><div class="bar-track"><div class="bar-fill end-label" style="background:#2563eb" data-width="100%">17,217</div></div></div>
-        <div class="bar-row"><div class="bar-label">2020</div><div class="bar-track"><div class="bar-fill end-label" style="background:#2563eb" data-width="89%">15,250</div></div></div>
-        <div class="bar-row"><div class="bar-label">2021</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="36%">6,158</div></div></div>
-        <div class="bar-row"><div class="bar-label">2022</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="20%">3,439</div></div></div>
-        <div class="bar-row"><div class="bar-label">2023</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="15%">2,662</div></div></div>
-        <div class="bar-row"><div class="bar-label">2024</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="10%">1,737</div></div></div>
-      </div>
-      <div class="callout" style="margin-top:16px">
-        <strong>DOB staffing fell 21.6%</strong> (662 to 519 construction staff, 2021-2024) while new building filings surged 5.2x (2,559 to 13,337). The staffing-to-filing ratio deteriorated by approximately 6.6x.
-      </div>
-    `
-  },
-
-  lpc: {
-    kicker: 'Landmarks',
-    title: 'LPC processing times by permit type',
-    dek: 'Landmarks Preservation Commission review adds a sequential dependency before DOB filing. For the most complex review type (Certificate of Appropriateness), the P90 is 222 days.',
-    html: `
-      <div class="bars-container" data-animate-bars>
-        <div class="bars-label">Median processing days by LPC regulation type</div>
-        <div class="bar-row"><div class="bar-label">Expedited CNE</div><div class="bar-track"><div class="bar-fill end-label" style="background:#059669" data-width="1%">1d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Auth to proceed</div><div class="bar-track"><div class="bar-fill end-label" style="background:#059669" data-width="4%">9d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Compliance</div><div class="bar-track"><div class="bar-fill end-label" style="background:#65a30d" data-width="5%">10d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Cert of No Effect</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="8%">17d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Minor work</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="8%">17d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Miscellaneous</div><div class="bar-track"><div class="bar-fill end-label" style="background:#FF9020" data-width="10%">22d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Cert of Approp</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="30%">66d</div></div></div>
-
-        <div class="bars-label">P90 processing days (1 in 10 projects waits this long)</div>
-        <div class="bar-row"><div class="bar-label">Cert of No Effect</div><div class="bar-track"><div class="bar-fill end-label" style="background:#ea580c" data-width="48%">106d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Minor work</div><div class="bar-track"><div class="bar-fill end-label" style="background:#ea580c" data-width="46%">101d</div></div></div>
-        <div class="bar-row"><div class="bar-label">Cert of Approp</div><div class="bar-track"><div class="bar-fill end-label" style="background:#dc2626" data-width="100%">222d</div></div></div>
-      </div>
-    `
-  },
-
-  objections: {
-    kicker: 'Objections',
-    title: 'DOB objection rates',
-    dek: '14.7% of new building filings are currently stuck at "Objections" status — plans rejected by DOB for code or zoning violations. Each objection cycle adds weeks to months.',
-    html: `
-      <div class="data-card">
-        <h3>New building filings by status (20,870 filings, 2024-present)</h3>
-        <div class="data-row"><div class="data-label">Approved</div><div class="data-value">10,877 (52%)</div></div>
-        <div class="data-row"><div class="data-label">Permit issued (entire)</div><div class="data-value">3,375 (16%)</div></div>
-        <div class="data-row"><div class="data-label">Objections</div><div class="data-value highlight">3,075 (14.7%)</div></div>
-        <div class="data-row"><div class="data-label">Plan examiner review</div><div class="data-value">1,426 (6.8%)</div></div>
-        <div class="data-row"><div class="data-label">Withdrawn</div><div class="data-value">681 (3.3%)</div></div>
-        <div class="data-row"><div class="data-label">Other statuses</div><div class="data-value">436 (2.1%)</div></div>
-      </div>
-      <div class="data-card">
-        <h3>Comparison: new buildings vs. alterations</h3>
-        <div class="data-row"><div class="data-label">NB objection rate</div><div class="data-value highlight">14.7%</div></div>
-        <div class="data-row"><div class="data-label">Alteration objection rate</div><div class="data-value">5.1%</div></div>
-        <div class="data-row"><div class="data-label">NB median processing days</div><div class="data-value highlight">108</div></div>
-        <div class="data-row"><div class="data-label">Alteration median processing days</div><div class="data-value">10</div></div>
-      </div>
-    `
-  },
-
-  methodology: {
-    kicker: 'Methodology',
-    title: 'Data sources and methodology',
-    dek: 'All figures are auditable. Here is where the data came from, how it was calculated, and what it cannot tell you.',
-    html: `
-      <div class="methodology-body">
-        <p>All data was pulled from NYC Open Data Socrata APIs on April 1, 2026. Processing times calculated as the difference between filing_date and first_permit_date (DOB) or received_date and issue_date (LPC).</p>
-        <table>
-          <thead>
-            <tr><th>Dataset</th><th>Socrata ID</th><th>Records</th><th>Date range</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>DOB NOW: Build job filings (NB)</td><td>w9ak-ipjd</td><td>20,870</td><td>2024-present</td></tr>
-            <tr><td>DOB NOW: Build job filings (Alt)</td><td>w9ak-ipjd</td><td>50,000</td><td>2025-present</td></tr>
-            <tr><td>DOB Certificates of Occupancy</td><td>bs8b-p36w</td><td>48,127</td><td>2019-present</td></tr>
-            <tr><td>DOB complaints</td><td>eabe-havv</td><td>50,000</td><td>2022-present</td></tr>
-            <tr><td>DOB violations</td><td>3h2n-5cm9</td><td>50,000</td><td>2022-present</td></tr>
-            <tr><td>LPC permit applications</td><td>dpm2-m9mq</td><td>50,000</td><td>2021-present</td></tr>
-            <tr><td>ULURP/land use applications</td><td>hgx4-8ukb</td><td>10,000</td><td>All available</td></tr>
-            <tr><td>NYC Housing Database</td><td>hg8x-zxpr</td><td>5,437</td><td>2019-present</td></tr>
-            <tr><td>City Record (hearings/rules)</td><td>dg92-zbpx</td><td>6,126</td><td>2022-present</td></tr>
-          </tbody>
-        </table>
-        <p><strong>Processing time methodology:</strong> Calculated as calendar days between filing_date and first_permit_date for DOB filings, and received_date to issue_date for LPC applications. Records with negative or zero processing times were excluded, as were records exceeding 3,650 days (10 years). Percentiles calculated from the sorted distribution of valid processing times.</p>
-        <p><strong>Limitations:</strong></p>
-        <ul>
-          <li>DOB NOW migration (2020-2022) created a break in the time series; pre-2020 data uses the legacy BIS system with different field structures</li>
-          <li>FDNY plan review has no public dataset; the 7-week re-inspection backlog figure is from industry reports and the NYC Comptroller</li>
-          <li>Self-certification data is not available in DOB NOW; the 1.7M figure comes from the legacy BIS system</li>
-          <li>CO issuance data includes both TCOs and final COs; the dataset does not distinguish job start dates from filing dates for all records</li>
-          <li>Processing times measure DOB internal review only; pre-filing activities (LPC, CEQR, ULURP) and post-permit activities (FDNY LOA, final CO) are separate</li>
-        </ul>
-        <p><strong>Regulatory citations:</strong> All statute and code section references are to current versions as of April 2026. Key authorities: NYC Administrative Code Title 28 (Buildings), Title 29 (Fire), Title 25 Ch. 3 (Landmarks); NYC Building Code (2014, as amended); NYC Zoning Resolution; Multiple Dwelling Law (NYS); CEQR Technical Manual (2025 edition); NYC Charter Chapters 8 (City Planning), 26 (DOB), 27 (BSA), 45 (CAPA).</p>
-      </div>
-    `
-  }
-};
-
-// Modal logic
-const backdrop = document.getElementById('backdrop');
-const modalBody = document.getElementById('modal-body');
-const modalEl = document.getElementById('modal');
-
-function openModal(key) {
-  const m = modals[key];
-  if (!m) return;
-  modalBody.innerHTML = `
-    <div class="modal-kicker">${m.kicker}</div>
-    <h2>${m.title}</h2>
-    <div class="modal-dek">${m.dek}</div>
-    ${m.html}
-  `;
-  backdrop.classList.add('open');
-  modalEl.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
-  attachTooltips();
-  animateBars(modalBody);
-}
-
-function closeModal() {
-  backdrop.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.tile').forEach(tile => {
-  tile.addEventListener('click', () => openModal(tile.getAttribute('data-modal')));
-});
-document.getElementById('modal-close').addEventListener('click', closeModal);
-backdrop.addEventListener('click', e => {
-  if (e.target === backdrop) closeModal();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
-
-// Tooltips for agency blocks inside modal
-const tooltip = document.getElementById('tooltip');
-function attachTooltips() {
-  modalBody.querySelectorAll('[data-tip]').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      const t = tips[el.getAttribute('data-tip')];
-      if (!t) return;
-      tooltip.innerHTML = '<h5>' + t.title + '</h5><p>' + t.text + '</p><div class="tooltip-cite">' + t.cite + '</div>';
-      tooltip.style.display = 'block';
-    });
-    el.addEventListener('mousemove', e => {
-      const x = Math.min(e.clientX + 12, window.innerWidth - 320);
-      const y = Math.min(e.clientY + 12, window.innerHeight - 200);
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
-    });
-    el.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
-  });
-}
-
-// Animate bars when modal opens
-function animateBars(root) {
-  root.querySelectorAll('[data-animate-bars]').forEach(container => {
+function activate(key) {
+  tabs.forEach(t => t.classList.toggle('active', t.getAttribute('data-panel') === key));
+  panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + key));
+  // animate bars if any
+  const active = document.getElementById('panel-' + key);
+  if (!active) return;
+  active.querySelectorAll('[data-animate-bars]').forEach(container => {
     container.querySelectorAll('[data-width]').forEach((bar, i) => {
       bar.style.width = '0';
       setTimeout(() => { bar.style.width = bar.getAttribute('data-width'); }, 60 + i * 50);
     });
   });
+  // scroll the active tab into view on mobile
+  document.querySelector('.tab.active')?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
 }
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => activate(tab.getAttribute('data-panel')));
+});
+
+// Tooltips
+const tooltip = document.getElementById('tooltip');
+document.querySelectorAll('[data-tip]').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const t = tips[el.getAttribute('data-tip')];
+    if (!t) return;
+    tooltip.innerHTML = '<h5>' + t.title + '</h5><p>' + t.text + '</p><div class="tooltip-cite">' + t.cite + '</div>';
+    tooltip.style.display = 'block';
+  });
+  el.addEventListener('mousemove', e => {
+    const x = Math.min(e.clientX + 12, window.innerWidth - 320);
+    const y = Math.min(e.clientY + 12, window.innerHeight - 200);
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  });
+  el.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+});
+
+// Animate initial panel
+activate('flow');
 </script>
 
 </body>
